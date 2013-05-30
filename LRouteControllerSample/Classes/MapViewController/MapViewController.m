@@ -16,6 +16,12 @@
     _mapView.myLocationEnabled = YES;
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
+    
+    _markerStart = [GMSMarker new];
+    _markerStart.title = @"Start";
+    
+    _markerFinish = [GMSMarker new];
+    _markerFinish.title = @"Finish";
 }
 
 
@@ -25,6 +31,8 @@
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
     _polyline.map = nil;
+    _markerStart.map = nil;
+    _markerFinish.map = nil;
     
     [_coordinates addObject:[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude]];
     
@@ -42,6 +50,12 @@
             }
             else
             {
+                _markerStart.position = [[_coordinates objectAtIndex:0] coordinate];
+                _markerStart.map = _mapView;
+                
+                _markerFinish.position = [[_coordinates lastObject] coordinate];
+                _markerFinish.map = _mapView;
+                
                 _polyline = polyline;
                 _polyline.strokeWidth = 3;
                 _polyline.strokeColor = [UIColor blueColor];

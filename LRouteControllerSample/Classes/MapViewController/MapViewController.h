@@ -8,6 +8,8 @@
     __weak GMSMapView *_mapView;
     LRouteController *_routeController;
     GMSPolyline *_polyline;
+    GMSMarker *_markerStart;
+    GMSMarker *_markerFinish;
 }
 
 
