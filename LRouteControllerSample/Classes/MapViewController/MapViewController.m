@@ -38,7 +38,7 @@
     
     if ([_coordinates count] > 1)
     {
-        [_routeController getPolylineWithLocations:_coordinates travelMode:TravelModeWalking andCompletitionBlock:^(GMSPolyline *polyline, NSError *error) {
+        [_routeController getPolylineWithLocations:_coordinates travelMode:TravelModeDriving andCompletitionBlock:^(GMSPolyline *polyline, NSError *error) {
             if (error)
             {
                 NSLog(@"%@", error);
