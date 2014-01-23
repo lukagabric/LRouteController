@@ -32,7 +32,7 @@
     NSString *sensor = @"false";
     NSString *origin = [locationStrings objectAtIndex:0];
     NSString *destination = [locationStrings lastObject];
-    NSMutableString *url = [NSMutableString stringWithFormat:@"%@&origin=%@&destination=%@&sensor=%@", kDirectionsURL, origin, destination, sensor];
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@origin=%@&destination=%@&sensor=%@", kDirectionsURL, origin, destination, sensor];
     
     if (locationsCount > 2)
     {
